@@ -1,0 +1,251 @@
+/*首页csss*/
+.fate{
+		width:100%;
+		background: #71c3c8;
+		color:#fff;
+		height:48px;
+		text-align:center;
+		line-height: 48px;
+		font-size: 20px;
+	}
+	.middle{
+		width:340px;
+		height: 520px;
+		margin :0 auto;
+		border-radius:10px;
+		border:1px solid #fff;
+		margin-bottom:20px;
+		    
+		background: #fff;
+	}
+	.people{
+		
+		width:100%;
+		height:200px;
+		color:#000;
+	}
+	.people img{
+		width:120px;
+		height:120px;
+		border-radius:60px;
+	}
+	.figure {
+		
+		width:95%;
+		/*height:100%;*/
+		/*margin :45px 0px 0px 15px;*/
+		padding:45px 0px 0px 15px;
+	}
+	.figure p {
+		width:180px;
+		height:100%;
+		float:right;
+		padding:5px 5px 0px 5px;
+	}
+	.figure p .list {
+		display:block;
+		width:180px;
+		height:30px;
+		line-height: 30px;
+		color:#434c53;
+		margin-bottom:5px;
+		
+	}
+	.figure p .name {
+		font-size:20px;
+		font-weight: bolder;
+		
+	}
+	.figure p .address {
+		font-size:15px;	
+		font-weight: bold;
+	}
+	.figure p .say {
+		font-size:14px;
+		white-space:nowrap;         
+		overflow:hidden;              
+		text-overflow:ellipsis;  
+	}	
+	}
+	.figure_radius{
+		float:left;
+		width:120px;
+		height:120px;
+	}
+	.dotted_line{
+		width:100%;
+		height:1px;
+		border-bottom: 1px dotted #ccc;
+
+	}
+	.chat {
+	text-align: center;
+	}
+	.chat .question{
+		text-align: left;
+		height:30px;
+		line-height: 30px;
+		padding: 25px 0px 0px 25px;
+		font-size:14px;
+		color:#747c83;
+		letter-spacing: 1px;
+	}
+	.chat .target{
+		width:270px;
+		height:50px;
+		
+		margin:20px 0px 0px 25px;
+		border-radius:25px;
+		background: #71c3c8;
+
+	}
+	.item {
+		width:40px;
+		height:40px;
+		border-radius: 20px;
+		line-height: 40px;
+		background: #fff;
+		font-size:24px;
+		color: #71c3c8;
+		margin:5px 5px 5px 0px;
+		display:inline-block;
+		font-weight: bolder;
+
+	}
+	.chat .target .item_info{
+		width:200px;
+		height:40px;
+		line-height: 40px;
+		display:inline-block;
+		color:#fff;
+		font-size:14px;
+		vertical-align: middle;
+		margin:-12px 0px 0px 0px;
+
+	}
+	.two_lines{
+	position:relative;
+	height:24px;
+
+
+	}
+	.vertical_line{
+		position: absolute;
+		top:15px;
+		left:30px;
+		height:20px;
+		width:10px;
+		border-radius:5px;
+		background: #71c3c8;
+
+	}
+	.vertical_line+.vertical_line{
+		position: absolute;
+		top:15px;
+		left:325px;
+		height:20px;
+		width:10px;
+		border-radius:5px;
+		background: #71c3c8;
+
+	}
+/*手机验证页面css*/
+	.back{
+		width:100%;
+		background: #71c3c8;
+		color:#fff;
+		height:48px;
+		font-size: 20px;
+	}
+	.back img{
+		width: 20px;
+	    height: 20px;
+	    margin: 15px 0px 0px 20px;
+		
+	}
+	.iphone_main{
+		width:340px;
+		/*background: #DEAB17;*/
+		margin:0 auto;
+		overflow: hidden;
+		text-align: center;
+	}
+	.iphone_top{
+		height:75px;
+		padding:33px 0px 0px 0px;
+	}
+	.iphone_number{
+		font-size: 20px;
+		padding-top:5px;
+	}
+	.tips{
+		font-size: 12px;
+		padding-top:10px;
+		color:#747c83;;
+	}
+	.iphone_info{
+		height:140px;
+		position: relative;
+	}
+	.ipnone input{
+		display:block;
+	}
+	.number{
+		background: none;
+		border:0;
+		width:300px;
+		height:49px;
+		display:block;
+		margin:20px 0px 0px 20px;
+		border-bottom:1px solid #71c3c8;
+		outline: none;
+		line-height: 70px;
+		font-size:16px;
+	}
+	.number:nth-child(2){
+		border-bottom:1px solid #c4c7ce;
+		
+	}
+	.validate {
+		position: absolute;
+		right:20px;
+		bottom:30px;
+		border-radius: 15px;
+		height:31px;
+		width:90px;
+		text-align:center;
+		line-height: 31px;
+		background: #71c3c8;
+		color:#fff;
+		letter-spacing: 1px;
+	}
+	.iphone_submit{
+		width:340px;
+		height:65px;
+	}
+	.iphone_submit .submit{
+		display:block;
+		width:300px;
+		height:50px;
+		line-height: 50px;
+		border-radius: 25px;
+		background: #e0e0e0;
+		color:#f0f0f0;
+		letter-spacing: 2px;
+		font-size: 16px;
+		margin:5px 0px 0px 20px;
+	}
+	.register_instructions{
+		position: absolute;
+		bottom:15px;
+		left:20px;
+		height:15px;
+		width:300px;
+		margin:0 auto;
+		text-align: center;
+		line-height: 15px;
+		color:#747c83;
+		font-size: 13px;
+		letter-spacing: 1px;
+		padding:0px 0px 0px 10px;
+	}

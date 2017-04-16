@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" name="viewport" />
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+    <title></title>
+  <link rel="stylesheet" href="css/init.css">
+<style type="text/css">
+    .top{
+      width:100%;
+      padding:1%;
+      background: #EAEAEA;
+      position: relative;
+    }
+    .number{
+      position: absolute;
+      right:10%;
+      top:50%;
+      transform: translate(50%,-50%);
+      font-size: 2em;
+      color:#000;
+    }
+    .time{
+      width:90%;
+      margin:3% auto;
+      background: #EAEAEA;
+      font-size: 2em;
+      color:#5555FF;
+    }
+    .box{
+      width:100%;
+      padding:1%;
+      margin:2% auto;
+    }
+    .box ul{
+      
+      text-align: center;
+    }
+    .box li{
+      width:16%;
+      margin:1%;
+    
+      font-size:1.2em;
+      display: inline-block;
+      text-align: center;
+    }
+    .initClick{
+        background: #4466AA;
+        opacity: 1;
+    }
+    .box li button{
+      width:100%;
+      height:100%;
+      line-height: 4;
+      background: none;
+      font-size:1.2em;
+      display: block;
+      text-align: center;
+      border:0;
+      outline: none;
+      color:#fff;
+    }
+    .re{
+      width:30%;
+      margin:2% auto;
+    }
+    .re a{
+      width:100%;
+      line-height: 5;
+      text-align: center;
+      margin:0 auto;
+      color:#000;
+      background: #4466AA;
+      color:#fff;
+    }
+
+    .initClick{
+      
+    }
+    .active{
+      opacity: 1;
+      background: #359;
+    }
+</style>
+
+</head>
+<body>
+    <div class="top"><div class="time">0.000</div><span class="number">1</span></div>
+    <div class="box">
+      <ul>
+
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+        <li><button></button></li>
+      </ul>
+    </div>
+    <div class="re"><a href="#" class="stop">重新开始</a></div>
+</body>
+ <script type="text/javascript" src="js/jquery.min.js"> </script>
+<!--  <script type="text/javascript" src="js/zepto.min.js"> </script> -->
+<script type="text/javascript">
+$(function(){
+
+  
+  
+  setBodyHeight();   
+  
+   
+   button=$('ul button');
+   //设置初始值
+   // //设置初始数据
+   button.parent().addClass('initClick');
+
+   arr=[];
+   setInitInfo(button,arr);
+   // console.log(button)
+   var timeDIV=$('.time');
+   var stop=$('.stop');
+ 
+  //设置初始秒数
+  
+  t=null;
+  date =new Date();
+  msO=date.getTime();
+  ms=0;
+  //重现开始触发事件
+  stop.click(function(){
+    stopClick();
+
+  });
+ 
+
+  //点击事件
+  item=1;
+
+
+  var newArrNumber=initDiffNUmber();
+   //setInitInfo(button,arr);
+  button.each(function(){
+   
+
+    $(this).click(function(){
+
+      
+      var curButtonText=parseInt($(this).text());
+      console.log('curButtonText '+curButtonText);
+      var nextButtonText=curButtonText+1;
+      console.log('nextButtonText '+nextButtonText);
+      var firstIndex=getIndex(curButtonText,arr);
+      if(item>25){
+        console.log('item:'+item)
+        console.log('当前数组：'+arr);
+        console.log('当前索引值：'+firstIndex);
+        console.log('当前元素的值： '+arr[firstIndex]);
+      }
+        console.log('当前索引值：'+firstIndex); 
+
+      //当前点击为1时开始计时
+      if(arr[firstIndex]==1){
+        clearTimeout(t);
+         //获取当前时间的毫秒数
+        date = new Date();
+        msO = date.getTime()
+        $('.time').text('0.000');
+        timer();
+      }
+      
+      if(arr[firstIndex]==item){
+        if(arr[firstIndex]<=25){
+          $(this).parent().animate({opacity:0.5},150);
+          $(this).parent().animate({opacity:1},100);
+        }
+
+        if(arr[firstIndex]>25&&arr[firstIndex]<=50){
+          $(this).parent().css('opacity',0);
+
+        }
+        
+        if(arr[firstIndex]==50){
+          $('.number').text(1);
+          arr.length=0;
+          clearTimeout(t);
+        
+         
+        }
+      //设置结束的状
+            
+             arr[firstIndex]=newArrNumber[item-1];
+             $(this).parent().removeClass('initClick').addClass('active');
+             $(this).text(newArrNumber[item-1]);
+             // console.log('$(this).text :'+$(this).text())
+             // var curText=parseInt($(this).text())
+             var index=getIndex(nextButtonText,arr)
+             console.log('index: '+index)
+             console.log(arr);
+             $('.number').text(item+1);
+             //console.log('改变成功');
+             item++;
+         
+          }
+             
+    });
+ 
+   });
+
+
+
+});
+
+ //停止按钮功能
+function stopClick(){
+     
+     clearTimeout(t);
+    
+    $('.time').text('0.000');
+    $('.number').text(1);
+     arr=reload();
+     setInitInfo(button,arr);
+     console.log('重新开始');
+     //重置计数器
+     item=1;
+     //设置透明度
+    button.parent().css('opacity',1);
+    button.parent().removeClass('active').addClass('initClick');
+}
+//按钮点击事件
+
+
+
+//点击按钮计时
+//
+
+ function timer(){
+
+    t=setTimeout(function(){
+        var date2 =new Date();
+        var msN=date2.getTime();
+        ms =(msN-msO)*0.001;
+        // console.log(ms.toFixed(3));
+        $('.time').text(ms.toFixed(3));
+        timer();
+    },10);
+
+  }
+
+
+//获取索引值[0,1,2,3,4]
+function getIndex(curButtonText,arr){
+  for(var j=0;j<arr.length;j++){
+    if(arr[j]===curButtonText)
+      return j;
+  }
+}
+//重复加载
+function reload(){
+  
+  for(var i in arr){
+    arr.length=0;
+  }
+
+  return arr;
+}
+
+function initDiffNUmber(){
+  var newArrNumber=[];
+
+    for(var i=0;;i++){
+      var newNumber=initNUmber(26,50);
+      if(newArrNumber.length<25){
+
+     
+        if(newArrNumber.indexOf(newNumber)==-1){
+          newArrNumber.push(newNumber);
+        }
+      }
+      else{
+        break;
+      }
+    }
+    return newArrNumber;
+}
+
+console.log(initDiffNUmber());
+//产生随机数
+function initNUmber(start,end){
+  // var number=Math.ceil(Math.random()*24);
+  var number=Math.floor(Math.random()*(end-start+1)+start);
+ return number;
+}
+//设置初始信息
+function setInitInfo(obj,arr){
+  
+      var i=0;
+      do{
+      var num=initNUmber(1,25);
+
+      if(arr.indexOf(num)==-1){
+
+        arr.push(num);
+        
+        $(obj[i]).text(num);             
+        i++;
+      }
+    }while(i<25);
+   
+}
+
+function setBodyHeight(){
+    var screenHeight=document.body.clientHeight;
+    $('body').height(screenHeight);
+}
+
+</script>
+
+</html>
